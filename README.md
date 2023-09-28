@@ -18,13 +18,13 @@
 
 ---
 
-# \*\*Repo Name\*\*
+# Rudderstack Observability Kit
 
-\*\*Repo description\*\*
+Common libraries for building services with standard observability 
 
 ## Overview
 
-\*\*Describe what the software does.\*\*
+Provides Go, node and pythong library to add observability support in a standard way for across all teams and services.
 
 ## Features
 
