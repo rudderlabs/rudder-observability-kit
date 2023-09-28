@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "constants": {
+      "factory": "./generator/src/generators/constants/generator",
+      "schema": "./generator/src/generators/constants/schema.json",
+      "description": "constants generator"
+    }
+  }
+}
