@@ -4,7 +4,7 @@ import { Tree, readProjectConfiguration } from '@nx/devkit';
 import { constantsGenerator } from './generator';
 import { ConstantsGeneratorSchema } from './schema';
 
-describe('constants-generator generator', () => {
+describe('constants generator', () => {
   let tree: Tree;
   const options: ConstantsGeneratorSchema = { name: 'test' };
 

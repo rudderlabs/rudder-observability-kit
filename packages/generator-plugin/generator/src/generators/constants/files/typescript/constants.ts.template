@@ -1,0 +1,3 @@
+<% constants.forEach(function(c){ %>
+export const <%= c.name %> = "<%= c.value %>";
+<% }); %>

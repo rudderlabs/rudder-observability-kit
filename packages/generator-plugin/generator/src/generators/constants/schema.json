@@ -4,15 +4,14 @@
   "title": "",
   "type": "object",
   "properties": {
-    "name": {
+    "languages": {
       "type": "string",
       "description": "",
       "$default": {
         "$source": "argv",
         "index": 0
       },
-      "x-prompt": "What name would you like to use?"
+      "x-prompt": "Enter Language Names (comma separated)[optional]"
     }
-  },
-  "required": ["name"]
+  }
 }

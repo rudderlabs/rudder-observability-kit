@@ -1,0 +1,6 @@
+package constants
+<% constants.forEach(function(c){ %>
+const (
+<%= c.name %> = "<%= c.value %>"
+)
+<% }); %>
