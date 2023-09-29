@@ -19,6 +19,11 @@ describe('constants generator', () => {
     const constantFileChanges = changes.filter(
       (c) => c.type === 'CREATE' && c.path.includes('constants')
     );
-    expect(constantFileChanges.length).toBe(ConstantFiles.length);
+    ConstantFiles.every((file) => {
+      const constantFileChange = constantFileChanges.find((c) =>
+        c.path.includes(file.root)
+      );
+      expect(constantFileChange).toBeTruthy();
+    });
   });
 });

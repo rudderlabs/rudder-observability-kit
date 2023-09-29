@@ -3,7 +3,13 @@ import {join} from 'path';
 import { ConstantsGeneratorSchema } from './schema';
 import { Constant, constants } from './constants';
 
-export const ConstantFiles = [
+type ConstantFileMetadata = {
+  lang: string;
+  root: string;
+  path: string;
+};
+
+export const ConstantFiles: ConstantFileMetadata[] = [
   {
     lang: 'go',
     root: 'go-observability-kit',
