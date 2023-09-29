@@ -1,0 +1,5 @@
+from .type import Label
+
+<% labels.forEach(function(c){ %>
+<%= c.name %> = Label.name("<%= c.value %>")
+<% }); %>

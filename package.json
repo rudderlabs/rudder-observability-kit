@@ -2,7 +2,9 @@
   "name": "rudder-observability-kit",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "generate:labels": "nx generate generator-plugin:labels"
+  },
   "private": true,
   "devDependencies": {
     "@nx-go/nx-go": "^2.8.0",

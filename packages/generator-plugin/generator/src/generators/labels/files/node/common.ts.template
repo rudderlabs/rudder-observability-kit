@@ -1,0 +1,4 @@
+import { Label } from "./type";
+<% labels.forEach(function(c){ %>
+export const <%= c.name %> = Label.Name("<%= c.value %>");
+<% }); %>

@@ -1,3 +1,0 @@
-<% constants.forEach(function(c){ %>
-<%= c.name %> = "<%= c.value %>"
-<% }); %>
