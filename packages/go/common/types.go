@@ -1,7 +1,7 @@
 package common
 
 type KeyValue struct {
-	key string
+	key   string
 	value string
 }
 
@@ -9,8 +9,8 @@ func NewKeyValue(key string, value string) KeyValue {
 	return KeyValue{key: key, value: value}
 }
 
-type Key string
-
-func (k Key) Value(val string) KeyValue {
-	return NewKeyValue(string(k), val)
+func Key(key string) func(string) KeyValue {
+	return func(value string) KeyValue {
+		return NewKeyValue(key, value)
+	}
 }
