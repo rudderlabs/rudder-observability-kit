@@ -1,10 +1,7 @@
 package labels
 
-import (
-	"github.com/rudderlabs/rudder-observability-kit/packages/go/common"
-)
-<% labels.forEach(function(c){ %>
 var (
-	<%= c.name %> = Key("<%= c.value %>")
+<% labels.forEach(function(c){ -%>
+	<%= c.name %> = Name("<%= c.value %>")
+<% }); -%>
 )
-<% }); %>
