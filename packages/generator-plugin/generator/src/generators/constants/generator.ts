@@ -1,15 +1,9 @@
 import { formatFiles, generateFiles, Tree } from '@nx/devkit';
-import * as path from 'path';
+import {join} from 'path';
 import { ConstantsGeneratorSchema } from './schema';
 import { Constant, constants } from './constants';
 
-type ConstantFileMetadata = {
-  lang: string;
-  root: string;
-  path: string;
-};
-
-const constantFiles = [
+export const ConstantFiles = [
   {
     lang: 'go',
     root: 'go-observability-kit',
@@ -29,23 +23,15 @@ const constantFiles = [
 
 export async function constantsGenerator(
   tree: Tree,
-  options: ConstantsGeneratorSchema
+  _options: ConstantsGeneratorSchema
 ) {
-  filterConstants(options.languages).forEach((file) => {
-    const projectRoot = path.join('packages', file.root, file.path);
-    generateFiles(tree, path.join(__dirname, 'files', file.lang), projectRoot, {
+  ConstantFiles.forEach((file) => {
+    const projectRoot = join('packages', file.root, file.path);
+    generateFiles(tree, join(__dirname, 'files', file.lang), projectRoot, {
       constants: constants.map(toSnakeUpperCase),
     });
   });
   await formatFiles(tree);
-}
-
-function filterConstants(languages: string = ''): ConstantFileMetadata[] {
-  if (!languages) {
-    return constantFiles;
-  }
-  const langSet = new Set(languages.split(',').map((lang) => lang.trim()));
-  return constantFiles.filter((file) => langSet.has(file.lang));
 }
 
 function toSnakeUpperCase(constant: Constant): Constant {

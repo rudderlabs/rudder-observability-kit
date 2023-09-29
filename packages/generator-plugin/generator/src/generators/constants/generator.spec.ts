@@ -1,7 +1,7 @@
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
-import { Tree, readProjectConfiguration } from '@nx/devkit';
+import { Tree } from '@nx/devkit';
 
-import { constantsGenerator } from './generator';
+import { constantsGenerator, ConstantFiles } from './generator';
 import { ConstantsGeneratorSchema } from './schema';
 
 describe('constants generator', () => {
@@ -14,7 +14,11 @@ describe('constants generator', () => {
 
   it('should run successfully', async () => {
     await constantsGenerator(tree, options);
-    const config = readProjectConfiguration(tree, 'test');
-    expect(config).toBeDefined();
+
+    const changes = tree.listChanges();
+    const constantFileChanges = changes.filter(
+      (c) => c.type === 'CREATE' && c.path.includes('constants')
+    );
+    expect(constantFileChanges.length).toBe(ConstantFiles.length);
   });
 });

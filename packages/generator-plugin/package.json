@@ -1,10 +1,11 @@
 {
-  "name": "@rudderstack/generator-plugin",
+  "name": "generator-plugin",
   "version": "0.0.1",
   "dependencies": {
     "@nx/devkit": "16.9.1",
     "tslib": "^2.3.0"
   },
+  "private": true,
   "type": "commonjs",
   "main": "./src/index.js",
   "typings": "./src/index.d.ts",

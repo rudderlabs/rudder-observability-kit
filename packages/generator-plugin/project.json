@@ -1,5 +1,5 @@
 {
-  "name": "@rudderstack/generator-plugin",
+  "name": "generator-plugin",
   "$schema": "../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/generator-plugin/src",
   "projectType": "library",
