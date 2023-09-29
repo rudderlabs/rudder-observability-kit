@@ -3,15 +3,5 @@
   "$id": "Constants",
   "title": "",
   "type": "object",
-  "properties": {
-    "languages": {
-      "type": "string",
-      "description": "",
-      "$default": {
-        "$source": "argv",
-        "index": 0
-      },
-      "x-prompt": "Enter Language Names (comma separated)[optional]"
-    }
-  }
+  "properties": {}
 }

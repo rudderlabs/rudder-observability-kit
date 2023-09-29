@@ -1,5 +1,5 @@
 package constants
 
 const (
-TEST = "test"
+TEST_NAME = "test"
 )

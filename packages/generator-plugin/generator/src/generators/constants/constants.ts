@@ -3,6 +3,6 @@ export type Constant = {
     value: string;
 };
 export const constants: Constant[] = [{
-    name: 'test',
+    name: 'testName',
     value: 'test',
 }];

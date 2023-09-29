@@ -1,2 +1,2 @@
 
-TEST = "test"
+TEST_NAME = "test"
