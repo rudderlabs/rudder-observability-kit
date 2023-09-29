@@ -1,3 +1,3 @@
-# python-observability-kit
+# python
 
 Project description here.

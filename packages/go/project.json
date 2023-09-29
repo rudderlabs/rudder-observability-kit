@@ -1,8 +1,8 @@
 {
-  "name": "go-observability-kit",
+  "name": "go",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "packages/go-observability-kit",
+  "sourceRoot": "packages/go",
   "targets": {
     "test": {
       "executor": "@nx-go/nx-go:test"

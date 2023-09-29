@@ -16,7 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "generator-plugin": ["packages/generator-plugin/src/index.ts"],
-      "node-observability-kit": ["packages/node-observability-kit/src/index.ts"]
+      "node": ["packages/node/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

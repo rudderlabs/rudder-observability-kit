@@ -1,14 +1,14 @@
 {
-  "name": "python-observability-kit",
+  "name": "python",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "packages/python-observability-kit/py_observability_kit",
+  "sourceRoot": "packages/python/src",
   "targets": {
     "lock": {
       "executor": "@nxlv/python:run-commands",
       "options": {
         "command": "poetry lock --no-update",
-        "cwd": "packages/python-observability-kit"
+        "cwd": "packages/python"
       }
     },
     "add": {
@@ -27,7 +27,7 @@
       "executor": "@nxlv/python:build",
       "outputs": ["{projectRoot}/dist"],
       "options": {
-        "outputPath": "packages/python-observability-kit/dist",
+        "outputPath": "packages/python/dist",
         "publish": false,
         "lockedVersions": true,
         "bundleLocalDependencies": true
@@ -46,21 +46,21 @@
     "lint": {
       "executor": "@nxlv/python:flake8",
       "outputs": [
-        "{workspaceRoot}/reports/packages/python-observability-kit/pylint.txt"
+        "{workspaceRoot}/reports/packages/python/pylint.txt"
       ],
       "options": {
-        "outputFile": "reports/packages/python-observability-kit/pylint.txt"
+        "outputFile": "reports/packages/python/pylint.txt"
       }
     },
     "test": {
       "executor": "@nxlv/python:run-commands",
       "outputs": [
-        "{workspaceRoot}/reports/packages/python-observability-kit/unittests",
-        "{workspaceRoot}/coverage/packages/python-observability-kit"
+        "{workspaceRoot}/reports/packages/python/unittests",
+        "{workspaceRoot}/coverage/packages/python"
       ],
       "options": {
         "command": "poetry run pytest tests/",
-        "cwd": "packages/python-observability-kit"
+        "cwd": "packages/python"
       }
     }
   },

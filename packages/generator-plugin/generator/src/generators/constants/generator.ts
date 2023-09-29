@@ -12,17 +12,17 @@ type ConstantFileMetadata = {
 export const ConstantFiles: ConstantFileMetadata[] = [
   {
     lang: 'go',
-    root: 'go-observability-kit',
+    root: 'go',
     path: 'constants',
   },
   {
     lang: 'typescript',
-    root: 'node-observability-kit',
+    root: 'node',
     path: 'src',
   },
   {
     lang: 'python',
-    root: 'python-observability-kit',
+    root: 'python',
     path: '',
   },
 ];

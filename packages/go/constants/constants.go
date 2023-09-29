@@ -1,7 +1,7 @@
 package constants
 
 import (
-	"github.com/rudderlabs/packages/go-observability-kit/common"
+	"github.com/rudderlabs/rudder-observability-kit/packages/go/common"
 )
 
 const (
