@@ -6,7 +6,7 @@ import { ConstantsGeneratorSchema } from './schema';
 
 describe('constants generator', () => {
   let tree: Tree;
-  const options: ConstantsGeneratorSchema = { name: 'test' };
+  const options: ConstantsGeneratorSchema = {};
 
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace();

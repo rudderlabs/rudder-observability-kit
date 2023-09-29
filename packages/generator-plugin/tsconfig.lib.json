@@ -4,8 +4,8 @@
     "outDir": "../dist/out-tsc",
     "declaration": true,
     "types": ["node"],
+    "composite": true,
   },
-  "composite": true,
   "include": ["../packages/generator-plugin/generator/src/**/*.ts"],
   "exclude": ["jest.config.ts", "../packages/generator-plugin/generator/src/**/*.spec.ts", "../packages/generator-plugin/generator/src/**/*.test.ts"]
 }
