@@ -1,3 +1,4 @@
+# GENERATED CODE - DO NOT EDIT
 from .type import Label
 
 DESTINATION_ID = Label.name("destinationId")

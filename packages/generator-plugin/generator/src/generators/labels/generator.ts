@@ -13,17 +13,17 @@ export const LabelFiles: LabelMetadata[] = [
   {
     lang: 'go',
     root: 'go',
-    path: 'labels',
+    path: '',
   },
   {
     lang: 'node',
     root: 'node',
-    path: 'src/labels',
+    path: 'src',
   },
   {
     lang: 'python',
     root: 'python',
-    path: 'labels',
+    path: '',
   },
 ];
 

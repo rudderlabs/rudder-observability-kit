@@ -1,3 +1,4 @@
+// GENERATED CODE - DO NOT EDIT
 import { Label } from './type';
 
 export const DESTINATION_ID = Label.Name('destinationId');

@@ -1,3 +1,4 @@
+# GENERATED CODE - DO NOT EDIT
 from .type import Label
 
 <% labels.forEach(function(c){ -%>

@@ -1,3 +1,4 @@
+// GENERATED CODE - DO NOT EDIT
 package labels
 
 var (
