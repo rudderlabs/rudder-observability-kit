@@ -24,15 +24,24 @@ Common libraries for building services with standard observability
 
 ## Overview
 
-Provides Go, node and pythong library to add observability support in a standard way for across all teams and services.
+This repo contains code for go, node and python; it developed using [NX](https://nx.dev/).
+### Common Labels
+We want labels used for observability to be shared across all language runtimes for consistancy so we are using [nx generators](https://nx.dev/extending-nx/recipes/local-generators) to generate the common labels using a single [labels file](./packages/generator-plugin/generator/src/generators/labels/labels.ts), [templates](./packages/generator-plugin/generator/src/generators/labels/files/) and [generator](./packages/generator-plugin/generator/src/generators/labels/generator.ts).
 
-## Features
+#### How to add new labels
+1. Add new labels to this [file](./packages/generator-plugin/generator/src/generators/labels/labels.ts)
+1. `npm run generate:labels`
+1. Labels will be updated for each supported languages.
+    * [Go](./packages/go/labels/common.go)
+    * [Node](./packages/node/src/labels/common.ts)
+    * [Python](./packages/python/labels/common.py)
 
-\*\*Describe the key features, if necessary.\*\*
+### Packages
+* [Go](./packages/go)
+* [Node](./packages/node)
+* [Pythob](./packages/python)
 
-## Getting started
-
-\*\*Describe how to use the software.\*\*
+These packages contains common labels and interfaces required for observability.
 
 ## Contribute
 
