@@ -1,7 +1,7 @@
 package labels
 
 type Label struct {
-	name   string
+	name  string
 	value string
 }
 
