@@ -15,7 +15,16 @@
     <a href="https://rudderstack.com/join-rudderstack-slack-community">Community Slack</a>
   </b>
 </p>
-
 ---
+
 # Rudder Observability Kit Monorepo
-This is 
+## Common Labels
+We want labels used for observability to be shared across all language runtimes for consistency so we are using [turbo generators]((https://turbo.build/repo/docs/core-concepts/monorepos/code-generation#writing-generators)) to generate the standard labels using a [single labels file](./turbo/generators/labels.json), [templates](./turbo/generators/templates/) and [generator](./turbo/generators/config.ts).
+### How to add new labels
+* Add new labels to this [file](./turbo/generators/labels.json)
+* Run: `make generate`
+* Labels will be updated for each supported language.
+  * [Go](./go/labels/common.go)
+  * [Node](./node/src/labels/common.ts)
+  * [Python](./python/labels/common.py)
+  
