@@ -27,4 +27,20 @@ We want labels used for observability to be shared across all language runtimes 
   * [Go](./go/labels/common.go)
   * [Node](./node/src/labels/common.ts)
   * [Python](./python/labels/common.py)
+
+## Label Name Conventions
+* Start with lower case
+* Use camel case
+* Examples: 
+  * :white_check_mark: sourceId
+  * :white_check_mark: destinationId
+  * :x: SourceID
+  * :x: destination_id
+* **Note:** When generating  `key` to refer label name we use snake case capital letters.
+  * Example: 
+    * label key for name `sourceId` -> SOURCE_ID
+    * More details refer generated constants: [Go](./go/labels/common.go) [Node](./node/src/labels/common.ts) [Python](./python/labels/common.py)
+  * This is only to refer within the code but actual name remains as you define it.
+   
+
   
