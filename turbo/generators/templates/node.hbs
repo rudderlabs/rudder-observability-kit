@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT EDIT
-import { Label } from "./type";
+import { Label } from "./label";
 
 {{#each labels}}
-export const {{this.name}} = Label.Name("{{this.value}}");
+export const {{this.variable}} = Label.Name<{{this.type}}>("{{this.name}}");
 {{/each}}

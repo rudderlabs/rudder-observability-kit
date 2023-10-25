@@ -2,5 +2,9 @@
 from .type import Label
 
 DESTINATION_ID = Label.name("destinationId")
-WORKSPACE_ID = Label.name("workspaceId")
+DESTINATION_TYPE = Label.name("destinationType")
 SOURCE_ID = Label.name("sourceId")
+SOURCE_TYPE = Label.name("sourceType")
+WORKSPACE_ID = Label.name("workspaceId")
+NAMESPACE = Label.name("namespace")
+ERROR = Label.name("error")

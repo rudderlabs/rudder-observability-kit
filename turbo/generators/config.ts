@@ -1,56 +1,61 @@
 import type { PlopTypes } from "@turbo/gen";
-import data from "./labels.json";
+import { type ActionType } from "node-plop";
+import { labels } from "./labels.json";
+import {
+  Label,
+  getCamelCaseIdentifierName,
+  getSnakeCaseIdentifierName,
+  idFunction,
+  mapLabels,
+  mapToNodeType,
+  validateLabels,
+} from "./common";
 
-type Label = {
-  name: string;
-  value: string;
-};
-// Learn more about Turborepo Generators at https://turbo.build/repo/docs/core-concepts/monorepos/code-generation
-
-function toSnakeUpperCase(label: string): Label {
-  const newName = label
-    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
-    ?.map((x) => x.toUpperCase())
-    .join("_");
-
-  if (!newName) {
-    throw new Error(`Unable to convert label ${label} to snake case`);
-  }
-  return {
-    name: newName,
-    value: label,
-  };
+function generateGoActions(labels: Record<string, Label[]>): ActionType[] {
+  return Object.keys(labels).map((serivce) => {
+    return {
+      type: "add",
+      data: mapLabels(labels[serivce], getCamelCaseIdentifierName, idFunction),
+      path: `go/labels/${serivce}.go`,
+      templateFile: "templates/go.hbs",
+      force: true,
+    };
+  });
 }
 
-// eslint-disable-next-line import/no-default-export -- Turbo generators require default export
+export function generateNodeActions(
+  labels: Record<string, Label[]>
+): ActionType[] {
+  return Object.keys(labels).map((serivce) => {
+    return {
+      type: "add",
+      data: mapLabels(labels[serivce], getCamelCaseIdentifierName, mapToNodeType),
+      path: `node/src/labels/${serivce}.ts`,
+      templateFile: "templates/node.hbs",
+      force: true,
+    };
+  });
+}
+
+function generatePythonActions(labels: Record<string, Label[]>): ActionType[] {
+  return Object.keys(labels).map((serivce) => {
+    return {
+      type: "add",
+      data: mapLabels(labels[serivce], getSnakeCaseIdentifierName, idFunction),
+      path: `python/labels/${serivce}.py`,
+      templateFile: "templates/python.hbs",
+      force: true,
+    };
+  });
+}
+
+// Learn more about Turborepo Generators at https://turbo.build/repo/docs/core-concepts/monorepos/code-generation
 export default function generator(plop: PlopTypes.NodePlopAPI): void {
-  // A simple generator to add a new React component to the internal UI library
-  const labels = { labels: data.labels.map(toSnakeUpperCase) };
+  validateLabels(labels);
+  const actions = [...generateGoActions(labels), ...generateNodeActions(labels), ...generatePythonActions(labels)];
   plop.setGenerator("labels", {
-    description: "Generate common labels for go, typescript, and python",
+    description: "Generate labels",
     prompts: [],
-    actions: [
-      {
-        type: "add",
-        data: labels,
-        path: "go/labels/common.go",
-        templateFile: "templates/go.hbs",
-        force: true,
-      },
-      {
-        type: "add",
-        data: labels,
-        path: "node/src/labels/common.ts",
-        templateFile: "templates/node.hbs",
-        force: true,
-      },
-      {
-        type: "add",
-        data: labels,
-        path: "python/labels/common.py",
-        templateFile: "templates/python.hbs",
-        force: true,
-      },
-    ],
+    actions,
   });
 }

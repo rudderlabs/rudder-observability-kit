@@ -3,6 +3,6 @@ package labels
 
 var (
 {{#each labels}}
-    {{this.name}} = Name("{{this.value}}")
+    {{this.variable}} = name[{{this.type}}]("{{this.name}}")
 {{/each}}
 )

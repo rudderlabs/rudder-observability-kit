@@ -2,7 +2,11 @@
 package labels
 
 var (
-    DESTINATION_ID = Name("destinationId")
-    WORKSPACE_ID = Name("workspaceId")
-    SOURCE_ID = Name("sourceId")
+    DestinationID = name[string]("destinationId")
+    DestinationType = name[string]("destinationType")
+    SourceID = name[string]("sourceId")
+    SourceType = name[string]("sourceType")
+    WorkspaceID = name[string]("workspaceId")
+    Namespace = name[string]("namespace")
+    Error = name[string]("error")
 )

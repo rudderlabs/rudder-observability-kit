@@ -29,8 +29,7 @@ We want labels used for observability to be shared across all language runtimes 
   * [Python](./python/labels/common.py)
 
 ## Label Name Conventions
-* Start with lower case
-* Use camel case
+* Start with lower case and use camel with alphanumeric characters
 * Examples: 
   * :white_check_mark: sourceId
   * :white_check_mark: destinationId
@@ -41,6 +40,12 @@ We want labels used for observability to be shared across all language runtimes 
     * label key for name `sourceId` -> SOURCE_ID
     * More details refer generated constants: [Go](./go/labels/common.go) [Node](./node/src/labels/common.ts) [Python](./python/labels/common.py)
   * This is only to refer within the code but actual name remains as you define it.
+## Supported Label types
+* int
+* int64
+* float32
+* float64
+* string
    
 
   

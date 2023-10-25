@@ -1,6 +1,10 @@
 // GENERATED CODE - DO NOT EDIT
-import { Label } from "./type";
+import { Label } from "./label";
 
-export const DESTINATION_ID = Label.Name("destinationId");
-export const WORKSPACE_ID = Label.Name("workspaceId");
-export const SOURCE_ID = Label.Name("sourceId");
+export const DestinationID = Label.Name<string>("destinationId");
+export const DestinationType = Label.Name<string>("destinationType");
+export const SourceID = Label.Name<string>("sourceId");
+export const SourceType = Label.Name<string>("sourceType");
+export const WorkspaceID = Label.Name<string>("workspaceId");
+export const Namespace = Label.Name<string>("namespace");
+export const Error = Label.Name<string>("error");

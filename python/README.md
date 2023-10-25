@@ -1,3 +1,0 @@
-# python
-
-Project description here.
