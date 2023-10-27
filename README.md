@@ -46,6 +46,11 @@ We want labels used for observability to be shared across all language runtimes 
 * float32
 * float64
 * string
+* bool
+* Time
+* TODO: add support for duration
+
+
    
 
   

@@ -1,7 +1,7 @@
-export class Label {
+export class Label<T> {
     private name: string;
-    private value: any;
-    constructor(name: string, value: any) {
+    private value: T;
+    constructor(name: string, value: T) {
         this.name = name;
         this.value = value;
     }
@@ -10,11 +10,11 @@ export class Label {
         return this.name;
     }
 
-    public getValue(): any {
+    public getValue(): T {
         return this.value;
     }
 
-    static Name<T>(name: string) : (value: T) => Label {
-        return (value: T) => new Label(name, value);
+    static Name<T>(name: string) : (value: T) => Label<T> {
+        return (value: T) => new Label<T>(name, value);
     }
 }

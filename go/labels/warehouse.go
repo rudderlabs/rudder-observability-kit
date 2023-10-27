@@ -3,4 +3,5 @@ package labels
 
 var (
     UploadID = name[int]("uploadId")
+    UploadTime = name[Time]("uploadTime")
 )

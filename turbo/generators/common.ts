@@ -77,6 +77,10 @@ export function mapToNodeType(type: string): string {
       return "number";
     case "float64":
       return "number";
+    case "bool":
+      return "boolean";
+    case "Time":
+        return "Date";
     default:
       return type;
   }
