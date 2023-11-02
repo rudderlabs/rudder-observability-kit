@@ -1,0 +1,6 @@
+# GENERATED CODE - DO NOT EDIT
+from .type import Label
+
+{{#each labels}}
+{{this.variable}} = Label.name("{{this.name}}")
+{{/each}}

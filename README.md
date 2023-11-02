@@ -15,29 +15,42 @@
     <a href="https://rudderstack.com/join-rudderstack-slack-community">Community Slack</a>
   </b>
 </p>
-
 ---
 
-# \*\*Repo Name\*\*
+# Rudder Observability Kit Monorepo
+## Common Labels
+We want labels used for observability to be shared across all language runtimes for consistency so we are using [turbo generators]((https://turbo.build/repo/docs/core-concepts/monorepos/code-generation#writing-generators)) to generate the standard labels using a [single labels file](./turbo/generators/labels.json), [templates](./turbo/generators/templates/) and [generator](./turbo/generators/config.ts).
+### How to add new labels
+* Add new labels to this [file](./turbo/generators/labels.json)
+* Run: `make generate`
+* Labels will be updated for each supported language.
+  * [Go](./go/labels/common.go)
+  * [Node](./node/src/labels/common.ts)
+  * [Python](./python/labels/common.py)
 
-\*\*Repo description\*\*
+## Label Name Conventions
+* Start with lower case and use camel with alphanumeric characters
+* Examples: 
+  * :white_check_mark: sourceId
+  * :white_check_mark: destinationId
+  * :x: SourceID
+  * :x: destination_id
+* **Note:** When generating  `key` to refer label name we use snake case capital letters.
+  * Example: 
+    * label key for name `sourceId` -> SOURCE_ID
+    * More details refer generated constants: [Go](./go/labels/common.go) [Node](./node/src/labels/common.ts) [Python](./python/labels/common.py)
+  * This is only to refer within the code but actual name remains as you define it.
+## Supported Label types
+* int
+* int64
+* float32
+* float64
+* string
+* bool
+* Time
+* TODO: add support for duration
 
-## Overview
 
-\*\*Describe what the software does.\*\*
+   
 
-## Features
-
-\*\*Describe the key features, if necessary.\*\*
-
-## Getting started
-
-\*\*Describe how to use the software.\*\*
-
-## Contribute
-
-We would love to see you contribute to RudderStack. Get more information on how to contribute [**here**](CONTRIBUTING.md).
-
-## License
-
-The RudderStack \*\*software name\*\* is released under the [**MIT License**](https://opensource.org/licenses/MIT).
+  

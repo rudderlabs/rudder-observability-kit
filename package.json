@@ -1,0 +1,10 @@
+{
+  "name": "@rudderstack/observability-kit",
+  "devDependencies": {
+    "@turbo/gen": "^1.10.16",
+    "turbo": "^1.10.16"
+  },
+  "scripts": {
+    "generate:labels": "turbo gen labels"
+  }
+}
