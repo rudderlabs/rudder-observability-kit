@@ -1,6 +1,9 @@
 package labels
 
-import "go.uber.org/zap"
+import (
+	"go.uber.org/zap"
+	"time"
+)
 
 type FieldType uint8
 
@@ -10,56 +13,51 @@ const (
 	IntType
 	BoolType
 	FloatType
+	TimeType
+	DurationType
 )
 
 type Label struct {
 	name      string
 	fieldType FieldType
 
-	unknown any
-	string  string
-	int     int64
-	bool    bool
-	float   float64
+	unknown  any
+	string   string
+	int      int64
+	bool     bool
+	float    float64
+	time     time.Time
+	duration time.Duration
 }
 
+type LabelFunc func(any) Label
+
 func NewLabel(name string, value any) Label {
-	return Label{
-		name:    name,
-		unknown: value,
-	}
+	return Label{name: name, unknown: value}
 }
 
 func StringLabel(name, value string) Label {
-	return Label{
-		name:      name,
-		string:    value,
-		fieldType: StringType,
-	}
+	return Label{name: name, string: value, fieldType: StringType}
 }
 
 func IntLabel(name string, value int64) Label {
-	return Label{
-		name:      name,
-		int:       value,
-		fieldType: IntType,
-	}
+	return Label{name: name, int: value, fieldType: IntType}
 }
 
 func BoolLabel(name string, value bool) Label {
-	return Label{
-		name:      name,
-		bool:      value,
-		fieldType: BoolType,
-	}
+	return Label{name: name, bool: value, fieldType: BoolType}
 }
 
 func FloatLabel(name string, value float64) Label {
-	return Label{
-		name:      name,
-		float:     value,
-		fieldType: FloatType,
-	}
+	return Label{name: name, float: value, fieldType: FloatType}
+}
+
+func TimeLabel(name string, value time.Time) Label {
+	return Label{name: name, time: value, fieldType: TimeType}
+}
+
+func DurationLabel(name string, value time.Duration) Label {
+	return Label{name: name, duration: value, fieldType: DurationType}
 }
 
 func (l Label) Name() string {
@@ -76,6 +74,10 @@ func (l Label) Value() any {
 		return l.bool
 	case FloatType:
 		return l.float
+	case TimeType:
+		return l.time
+	case DurationType:
+		return l.duration
 	default:
 		return l.unknown
 	}
@@ -103,6 +105,10 @@ func (l Label) Zap() zap.Field {
 		return zap.Bool(l.name, l.bool)
 	case FloatType:
 		return zap.Float64(l.name, l.float)
+	case TimeType:
+		return zap.Time(l.name, l.time)
+	case DurationType:
+		return zap.Duration(l.name, l.duration)
 	default:
 		return zap.Any(l.name, l.unknown)
 	}
