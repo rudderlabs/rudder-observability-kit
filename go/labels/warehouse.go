@@ -1,7 +1,9 @@
+
 // GENERATED CODE - DO NOT EDIT
 package labels
 
+// Labels for team warehouse
 var (
-    UploadID = name[int]("uploadId")
+    UploadId = name[int]("uploadId")
     UploadTime = name[Time]("uploadTime")
 )

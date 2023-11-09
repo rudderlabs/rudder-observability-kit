@@ -1,0 +1,7 @@
+# GENERATED CODE - DO NOT EDIT
+from .type import Label
+
+# Labels for team {{ .Team }}
+{{- range .Labels }}
+{{ .PythonVarName }} = Label.name("{{ .Name }}")
+{{- end }}

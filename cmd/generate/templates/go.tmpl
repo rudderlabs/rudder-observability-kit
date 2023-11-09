@@ -1,0 +1,10 @@
+
+// GENERATED CODE - DO NOT EDIT
+package labels
+
+// Labels for team {{ .Team }}
+var (
+{{- range .Labels }}
+    {{ .GoVarName }} = name[{{ .GoType }}]("{{ .Name }}")
+{{- end }}
+)

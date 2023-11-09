@@ -19,9 +19,9 @@
 
 # Rudder Observability Kit Monorepo
 ## Common Labels
-We want labels used for observability to be shared across all language runtimes for consistency so we are using [turbo generators]((https://turbo.build/repo/docs/core-concepts/monorepos/code-generation#writing-generators)) to generate the standard labels using a [single labels file](./turbo/generators/labels.json), [templates](./turbo/generators/templates/) and [generator](./turbo/generators/config.ts).
+We want labels used for observability to be shared across all language runtimes for consistency so we are using [go templates](https://pkg.go.dev/text/template) to generate the standard labels using a [single labels file](./cmd/generate/labels.yaml), [templates](./cmd/generate/templates/) and [generator](./cmd/generate/main.go).
 ### How to add new labels
-* Add new labels to this [file](./turbo/generators/labels.json)
+* Add new labels to this [file](./cmd/generate/labels.yaml)
 * Run: `make generate`
 * Labels will be updated for each supported language.
   * [Go](./go/labels/common.go)

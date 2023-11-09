@@ -1,0 +1,6 @@
+{
+  "name": "@rudderstack/observability-kit",
+  "publishConfig": {
+    "access": "public"
+  }
+}

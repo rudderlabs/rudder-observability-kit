@@ -1,6 +1,7 @@
 # GENERATED CODE - DO NOT EDIT
 from .type import Label
 
+# Labels for team common
 DESTINATION_ID = Label.name("destinationId")
 DESTINATION_TYPE = Label.name("destinationType")
 SOURCE_ID = Label.name("sourceId")
