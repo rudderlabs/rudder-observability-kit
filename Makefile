@@ -1,3 +1,4 @@
 # Generare labels for all language runtimes
+.PHONY: generate
 generate:
-	npm run generate:labels
+	go run cmd/generate/main.go

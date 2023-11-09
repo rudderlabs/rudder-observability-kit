@@ -1,12 +1,14 @@
+
 // GENERATED CODE - DO NOT EDIT
 package labels
 
+// Labels for team common
 var (
-    DestinationID = name[string]("destinationId")
+    DestinationId = name[string]("destinationId")
     DestinationType = name[string]("destinationType")
-    SourceID = name[string]("sourceId")
+    SourceId = name[string]("sourceId")
     SourceType = name[string]("sourceType")
-    WorkspaceID = name[string]("workspaceId")
+    WorkspaceId = name[string]("workspaceId")
     Namespace = name[string]("namespace")
     Error = name[string]("error")
 )

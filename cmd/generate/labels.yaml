@@ -1,0 +1,25 @@
+---
+# Make sure to follow the convertions mentioned in the README.md file
+labels:
+  # Company wide common labels
+  common:
+    - name: destinationId
+      type: string
+    - name: destinationType
+      type: string
+    - name: sourceId
+      type: string
+    - name: sourceType
+      type: string
+    - name: workspaceId
+      type: string
+    - name: namespace
+      type: string
+    - name: error
+      type: string
+  # Team specific labels
+  warehouse:
+    - name: uploadId
+      type: int
+    - name: uploadTime
+      type: Time

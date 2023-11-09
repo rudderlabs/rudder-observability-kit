@@ -1,0 +1,7 @@
+// GENERATED CODE - DO NOT EDIT
+import { Label } from "./label";
+
+// Labels for team {{ .Team }}
+{{- range .Labels }}
+export const {{ .NodeVarName }} = Label.Name<{{ .NodeType }}>("{{ .Name }}");
+{{- end }}
