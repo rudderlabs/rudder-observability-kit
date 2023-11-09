@@ -1,8 +1,7 @@
-
 // GENERATED CODE - DO NOT EDIT
 package labels
 
-// Labels for team {{ .Team }}
+// Labels for the {{ .Domain }} domain
 var (
 {{- range .Labels }}
     {{ .GoVarName }} = name[{{ .GoType }}]("{{ .Name }}")

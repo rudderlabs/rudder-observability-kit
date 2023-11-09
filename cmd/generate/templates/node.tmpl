@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT EDIT
 import { Label } from "./label";
 
-// Labels for team {{ .Team }}
+// Labels for the {{ .Domain }} domain
 {{- range .Labels }}
 export const {{ .NodeVarName }} = Label.Name<{{ .NodeType }}>("{{ .Name }}");
 {{- end }}

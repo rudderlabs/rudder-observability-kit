@@ -43,7 +43,7 @@ func (l Label) PythonVarName() string {
 	return strcase.ToScreamingSnake(l.Name)
 }
 
-// Currently not used, kept for concistency
+// PythonType is not used, we keep it for consistency
 func (l Label) PythonType() string {
 	return l.Type
 }
@@ -60,24 +60,24 @@ func (labels Labels) Validate() error {
 	}
 
 	allLabels := map[string]string{}
-	for team, teamLabels := range labels.Labels {
-		if len(teamLabels) == 0 {
-			return fmt.Errorf("labels are empty for team %s", team)
+	for domain, domainLabels := range labels.Labels {
+		if len(domainLabels) == 0 {
+			return fmt.Errorf("labels are empty for domain %s", domain)
 		}
-		for _, label := range teamLabels {
+		for _, label := range domainLabels {
 			if label.Name == "" {
-				return fmt.Errorf("label name is empty for team %s", team)
+				return fmt.Errorf("label name is empty for domain %s", domain)
 			}
 			if !validLabelName.MatchString(label.Name) {
-				return fmt.Errorf("label name %s is invalid for team %s", label.Name, team)
+				return fmt.Errorf("label name %s is invalid for domain %s", label.Name, domain)
 			}
 			if label.Type == "" {
-				return fmt.Errorf("label type is empty for team %s", team)
+				return fmt.Errorf("label type is empty for domain %s", domain)
 			}
 			if _, ok := allLabels[label.Name]; ok {
-				return fmt.Errorf("label name %s is already used in team %s", label.Name, team)
+				return fmt.Errorf("label name %s is already used in domain %s", label.Name, domain)
 			}
-			allLabels[label.Name] = team
+			allLabels[label.Name] = domain
 		}
 	}
 	return nil
