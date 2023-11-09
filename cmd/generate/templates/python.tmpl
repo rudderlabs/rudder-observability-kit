@@ -3,5 +3,5 @@ from .type import Label
 
 # Labels for the {{ .Domain }} domain
 {{- range .Labels }}
-{{ .PythonVarName }} = Label.name("{{ .Name }}")
+{{ .Name | ToScreamingSnake }} = Label.name("{{ .Name }}")
 {{- end }}

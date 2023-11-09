@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT EDIT
 import { Label } from "./label";
 
-// Labels for team common
+// Labels for the common domain
 export const DestinationId = Label.Name<string>("destinationId");
 export const DestinationType = Label.Name<string>("destinationType");
 export const SourceId = Label.Name<string>("sourceId");

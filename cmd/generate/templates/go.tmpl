@@ -1,9 +1,12 @@
+// Package labels
+// It contains labels for the {{ .Domain }} domain
 // GENERATED CODE - DO NOT EDIT
 package labels
 
-// Labels for the {{ .Domain }} domain
+import "time"
+
 var (
 {{- range .Labels }}
-    {{ .GoVarName }} = name[{{ .GoType }}]("{{ .Name }}")
+    {{ .Name | ToCamel }} LabelFunc = func(v any) Label { return {{ .Type | ToCamel }}Label("{{ .Name }}", v.({{ .GoType }})) }
 {{- end }}
 )

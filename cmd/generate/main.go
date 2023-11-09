@@ -8,6 +8,7 @@ import (
 	"path"
 	"text/template"
 
+	"github.com/iancoleman/strcase"
 	"gopkg.in/yaml.v3"
 
 	"github.com/rudderlabs/rudder-observability-kit/cmd/internal/generator"
@@ -30,15 +31,19 @@ func main() {
 }
 
 func generateLabels(labels generator.Labels, templateFile, outputDir, extension string) {
-	tmpl, err := template.New(path.Base(templateFile)).ParseFiles(templateFile)
+	funcMap := template.FuncMap{
+		"ToCamel":          strcase.ToCamel,
+		"ToScreamingSnake": strcase.ToScreamingSnake,
+	}
+	tmpl, err := template.New(path.Base(templateFile)).Funcs(funcMap).ParseFiles(templateFile)
 	if err != nil {
-		log.Fatal("error occurred while parsing template", err)
+		log.Fatalf("error occurred while parsing template [%q]: %v", path.Base(templateFile), err)
 	}
 
 	for domain, domainLabels := range labels.Labels {
 		filename := fmt.Sprintf("%s/%s.%s", outputDir, domain, extension)
 		if err := createFile(tmpl, domain, filename, domainLabels); err != nil {
-			log.Fatalf("error occurred while generating file: %v", err)
+			log.Fatalf("error occurred while generating file %q: %v", filename, err)
 		}
 		log.Printf("generated %s", filename)
 	}

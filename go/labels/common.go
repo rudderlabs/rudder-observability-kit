@@ -1,13 +1,16 @@
+// Package labels
+// It contains labels for the common domain
 // GENERATED CODE - DO NOT EDIT
 package labels
 
-// Labels for common domain
+import "time"
+
 var (
-	DestinationId   = name[string]("destinationId")
-	DestinationType = name[string]("destinationType")
-	SourceId        = name[string]("sourceId")
-	SourceType      = name[string]("sourceType")
-	WorkspaceId     = name[string]("workspaceId")
-	Namespace       = name[string]("namespace")
-	Error           = name[string]("error")
+	DestinationId   LabelFunc = func(v any) Label { return StringLabel("destinationId", v.(string)) }
+	DestinationType LabelFunc = func(v any) Label { return StringLabel("destinationType", v.(string)) }
+	SourceId        LabelFunc = func(v any) Label { return StringLabel("sourceId", v.(string)) }
+	SourceType      LabelFunc = func(v any) Label { return StringLabel("sourceType", v.(string)) }
+	WorkspaceId     LabelFunc = func(v any) Label { return StringLabel("workspaceId", v.(string)) }
+	Namespace       LabelFunc = func(v any) Label { return StringLabel("namespace", v.(string)) }
+	Error           LabelFunc = func(v any) Label { return StringLabel("error", v.(string)) }
 )

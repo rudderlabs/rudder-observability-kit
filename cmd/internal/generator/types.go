@@ -3,8 +3,6 @@ package generator
 import (
 	"fmt"
 	"regexp"
-
-	"github.com/iancoleman/strcase"
 )
 
 type Label struct {
@@ -12,16 +10,23 @@ type Label struct {
 	Type string `yaml:"type"`
 }
 
-func (l Label) GoVarName() string {
-	return strcase.ToCamel(l.Name)
-}
-
 func (l Label) GoType() string {
-	return l.Type
-}
-
-func (l Label) NodeVarName() string {
-	return strcase.ToCamel(l.Name)
+	switch l.Type {
+	case "string":
+		return "string"
+	case "int", "int64", "int32":
+		return "int64"
+	case "bool":
+		return "bool"
+	case "float64", "float32":
+		return "float64"
+	case "time":
+		return "time.Time"
+	case "duration":
+		return "time.Duration"
+	default:
+		panic(fmt.Sprintf("unsupported type %s", l.Type))
+	}
 }
 
 func (l Label) NodeType() string {
@@ -37,15 +42,6 @@ func (l Label) NodeType() string {
 	default:
 		panic(fmt.Sprintf("unsupported type %s", l.Type))
 	}
-}
-
-func (l Label) PythonVarName() string {
-	return strcase.ToScreamingSnake(l.Name)
-}
-
-// PythonType is not used, we keep it for consistency
-func (l Label) PythonType() string {
-	return l.Type
 }
 
 type Labels struct {

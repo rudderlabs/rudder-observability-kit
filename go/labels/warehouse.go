@@ -1,8 +1,10 @@
+// Package labels
+// It contains labels for the warehouse domain
 // GENERATED CODE - DO NOT EDIT
 package labels
 
-// Labels for warehouse domain
+import "time"
+
 var (
-	UploadId   = name[int]("uploadId")
-	UploadTime = name[Time]("uploadTime")
+	UploadId LabelFunc = func(v any) Label { return IntLabel("uploadId", v.(int64)) }
 )

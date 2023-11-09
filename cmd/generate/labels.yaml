@@ -21,5 +21,3 @@ labels:
   warehouse:
     - name: uploadId
       type: int
-    - name: uploadTime
-      type: Time

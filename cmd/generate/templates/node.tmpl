@@ -3,5 +3,5 @@ import { Label } from "./label";
 
 // Labels for the {{ .Domain }} domain
 {{- range .Labels }}
-export const {{ .NodeVarName }} = Label.Name<{{ .NodeType }}>("{{ .Name }}");
+export const {{ .Name | ToCamel }} = Label.Name<{{ .NodeType }}>("{{ .Name }}");
 {{- end }}
