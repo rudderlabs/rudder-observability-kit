@@ -3,14 +3,16 @@
 // GENERATED CODE - DO NOT EDIT
 package labels
 
-import "time"
+import (
+	log "github.com/rudderlabs/rudder-go-kit/logger"
+)
 
 var (
-	DestinationId   LabelFunc = func(v any) Label { return StringLabel("destinationId", v.(string)) }
-	DestinationType LabelFunc = func(v any) Label { return StringLabel("destinationType", v.(string)) }
-	SourceId        LabelFunc = func(v any) Label { return StringLabel("sourceId", v.(string)) }
-	SourceType      LabelFunc = func(v any) Label { return StringLabel("sourceType", v.(string)) }
-	WorkspaceId     LabelFunc = func(v any) Label { return StringLabel("workspaceId", v.(string)) }
-	Namespace       LabelFunc = func(v any) Label { return StringLabel("namespace", v.(string)) }
-	Error           LabelFunc = func(v any) Label { return StringLabel("error", v.(string)) }
+	DestinationId   = func(v any) log.Field { return log.NewStringField("destinationId", v.(string)) }
+	DestinationType = func(v any) log.Field { return log.NewStringField("destinationType", v.(string)) }
+	SourceId        = func(v any) log.Field { return log.NewStringField("sourceId", v.(string)) }
+	SourceType      = func(v any) log.Field { return log.NewStringField("sourceType", v.(string)) }
+	WorkspaceId     = func(v any) log.Field { return log.NewStringField("workspaceId", v.(string)) }
+	Namespace       = func(v any) log.Field { return log.NewStringField("namespace", v.(string)) }
+	Error           = func(v any) log.Field { return log.NewStringField("error", v.(string)) }
 )

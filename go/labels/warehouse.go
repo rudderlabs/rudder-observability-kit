@@ -3,8 +3,10 @@
 // GENERATED CODE - DO NOT EDIT
 package labels
 
-import "time"
+import (
+	log "github.com/rudderlabs/rudder-go-kit/logger"
+)
 
 var (
-	UploadId LabelFunc = func(v any) Label { return IntLabel("uploadId", v.(int64)) }
+	UploadId = func(v any) log.Field { return log.NewIntField("uploadId", v.(int64)) }
 )

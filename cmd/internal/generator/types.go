@@ -24,6 +24,8 @@ func (l Label) GoType() string {
 		return "time.Time"
 	case "duration":
 		return "time.Duration"
+	case "error":
+		return "error"
 	default:
 		panic(fmt.Sprintf("unsupported type %s", l.Type))
 	}

@@ -3,10 +3,12 @@
 // GENERATED CODE - DO NOT EDIT
 package labels
 
-import "time"
+import (
+    log "github.com/rudderlabs/rudder-go-kit/logger"
+)
 
 var (
 {{- range .Labels }}
-    {{ .Name | ToCamel }} LabelFunc = func(v any) Label { return {{ .Type | ToCamel }}Label("{{ .Name }}", v.({{ .GoType }})) }
+    {{ .Name | ToCamel }} = func(v any) log.Field { return log.New{{ .Type | ToCamel }}Field("{{ .Name }}", v.({{ .GoType }})) }
 {{- end }}
 )
