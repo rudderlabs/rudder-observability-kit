@@ -7,6 +7,4 @@ import (
 	log "github.com/rudderlabs/rudder-go-kit/logger"
 )
 
-var (
-	UploadID = func(v int64) log.Field { return log.NewIntField("uploadId", v) }
-)
+var UploadID = func(v int64) log.Field { return log.NewIntField("uploadId", v) }
