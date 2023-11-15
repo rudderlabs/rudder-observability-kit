@@ -9,7 +9,7 @@ func TestToCamelWithInitialisms(t *testing.T) {
 		want string
 	}{
 		{test: "1", arg: "destination_id", want: "DestinationID"},
-		{test: "2", arg: "someDestinationID", want: "SomeDestinationID"},
+		{test: "2", arg: "someDestinationId", want: "SomeDestinationID"},
 		{test: "3", arg: "fooApi", want: "FooAPI"},
 		{test: "4", arg: "fooAscii", want: "FooASCII"},
 		{test: "5", arg: "fooCpu", want: "FooCPU"},
@@ -36,9 +36,8 @@ func TestToCamelWithInitialisms(t *testing.T) {
 		{test: "26", arg: "fooUuid", want: "FooUUID"},
 		{test: "27", arg: "fooUri", want: "FooURI"},
 		{test: "28", arg: "fooUrl", want: "FooURL"},
-		{test: "29", arg: "fooUtf8", want: "FooUTF8"},
-		{test: "30", arg: "fooXml", want: "FooXML"},
-		{test: "31", arg: "fooXss", want: "FooXSS"},
+		{test: "29", arg: "fooXml", want: "FooXML"},
+		{test: "30", arg: "fooXss", want: "FooXSS"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.test, func(t *testing.T) {

@@ -25,7 +25,7 @@ var (
 	initialisms      = []string{
 		"API", "ASCII", "CPU", "CSS", "DNS", "EOF", "GUID", "HTML", "HTTP", "HTTPS",
 		"ID", "IP", "JSON", "QPS", "RAM", "RPC", "SSH", "TCP", "TLS", "TTL", "UDP",
-		"UI", "UID", "UUID", "URI", "URL", "UTF8", "XML", "XSS",
+		"UI", "UID", "UUID", "URI", "URL", "XML", "XSS",
 	}
 )
 
