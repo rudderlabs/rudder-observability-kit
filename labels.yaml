@@ -17,8 +17,6 @@ labels:
       type: string
     - name: error
       type: string
-    - name: testToBreakCi
-      type: string
   # Domain specific labels
   warehouse:
     - name: uploadId
