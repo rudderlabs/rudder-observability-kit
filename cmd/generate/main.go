@@ -16,9 +16,6 @@ import (
 	"github.com/rudderlabs/rudder-observability-kit/cmd/internal/generator"
 )
 
-//go:embed labels.yaml
-var labelsYAML []byte
-
 // https://github.com/golang/go/wiki/CodeReviewComments#initialisms
 var (
 	initialismsRegex *regexp.Regexp
@@ -36,12 +33,23 @@ func init() {
 }
 
 func main() {
+	cwd, err := os.Getwd()
+	if err != nil {
+		log.Fatalf("error occurred while getting current working directory: %v", err)
+	}
+
+	labelsPath := path.Join(cwd, "labels.yaml")
+	labelsYAML, err := os.ReadFile(labelsPath)
+	if err != nil {
+		log.Fatalf("error occurred while reading %q: %v", labelsPath, err)
+	}
+
 	var labels generator.Labels
 	if err := yaml.Unmarshal(labelsYAML, &labels); err != nil {
-		log.Fatal("error occurred while parsing labels", err)
+		log.Fatalf("error occurred while parsing labels: %v", err)
 	}
 	if err := labels.Validate(); err != nil {
-		log.Fatal("error occurred while validating labels", err)
+		log.Fatalf("error occurred while validating labels: %v", err)
 	}
 	generateLabels(labels, "cmd/generate/templates/go.tmpl", "go/labels", "go")
 	generateLabels(labels, "cmd/generate/templates/node.tmpl", "node/src/labels", "ts")
