@@ -8,11 +8,11 @@ import (
 )
 
 var (
-	DestinationId   = func(v string) log.Field { return log.NewStringField("destinationId", v) }
+	DestinationID   = func(v string) log.Field { return log.NewStringField("destinationId", v) }
 	DestinationType = func(v string) log.Field { return log.NewStringField("destinationType", v) }
-	SourceId        = func(v string) log.Field { return log.NewStringField("sourceId", v) }
+	SourceID        = func(v string) log.Field { return log.NewStringField("sourceId", v) }
 	SourceType      = func(v string) log.Field { return log.NewStringField("sourceType", v) }
-	WorkspaceId     = func(v string) log.Field { return log.NewStringField("workspaceId", v) }
+	WorkspaceID     = func(v string) log.Field { return log.NewStringField("workspaceId", v) }
 	Namespace       = func(v string) log.Field { return log.NewStringField("namespace", v) }
 	Error           = func(v string) log.Field { return log.NewStringField("error", v) }
 )

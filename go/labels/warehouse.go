@@ -8,5 +8,5 @@ import (
 )
 
 var (
-	UploadId = func(v int64) log.Field { return log.NewIntField("uploadId", v) }
+	UploadID = func(v int64) log.Field { return log.NewIntField("uploadId", v) }
 )

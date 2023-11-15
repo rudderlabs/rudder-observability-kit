@@ -6,6 +6,8 @@ import (
 	"log"
 	"os"
 	"path"
+	"regexp"
+	"strings"
 	"text/template"
 
 	"github.com/iancoleman/strcase"
@@ -16,6 +18,23 @@ import (
 
 //go:embed labels.yaml
 var labelsYAML []byte
+
+// https://github.com/golang/go/wiki/CodeReviewComments#initialisms
+var (
+	initialismsRegex *regexp.Regexp
+	initialisms      = []string{
+		"API", "ASCII", "CPU", "CSS", "DNS", "EOF", "GUID", "HTML", "HTTP", "HTTPS",
+		"ID", "IP", "JSON", "QPS", "RAM", "RPC", "SSH", "TCP", "TLS", "TTL", "UDP",
+		"UI", "UID", "UUID", "URI", "URL", "UTF8", "XML", "XSS",
+	}
+)
+
+func init() {
+	initialismsRegex = regexp.MustCompile(fmt.Sprintf(
+		`(?i)\b(%s)\b`,
+		strcase.ToDelimited(strings.Join(initialisms, "|"), '|'),
+	))
+}
 
 func main() {
 	var labels generator.Labels
@@ -32,8 +51,9 @@ func main() {
 
 func generateLabels(labels generator.Labels, templateFile, outputDir, extension string) {
 	funcMap := template.FuncMap{
-		"ToCamel":          strcase.ToCamel,
-		"ToScreamingSnake": strcase.ToScreamingSnake,
+		"ToCamel":                strcase.ToCamel,
+		"ToCamelWithInitialisms": toCamelWithInitialisms,
+		"ToScreamingSnake":       strcase.ToScreamingSnake,
 	}
 	tmpl, err := template.New(path.Base(templateFile)).Funcs(funcMap).ParseFiles(templateFile)
 	if err != nil {
@@ -70,4 +90,20 @@ func createFile(
 	}
 
 	return nil
+}
+
+// https://github.com/golang/go/wiki/CodeReviewComments#initialisms
+func toCamelWithInitialisms(s string) string {
+	s = strcase.ToDelimited(s, ' ')
+
+	a := strings.Split(s, " ")
+	for i, w := range a {
+		if initialismsRegex.MatchString(w) {
+			a[i] = strings.ToUpper(w)
+		} else {
+			a[i] = strcase.ToCamel(w)
+		}
+	}
+
+	return strings.Join(a, "")
 }

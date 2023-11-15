@@ -17,7 +17,7 @@ labels:
       type: string
     - name: error
       type: string
-  # Team specific labels
+  # Domain specific labels
   warehouse:
     - name: uploadId
       type: int
