@@ -30,6 +30,12 @@ jobs:
       - name: Error message
         if: ${{ failure() }}
         run: echo 'Not formatted files. Ensure you have run `make fmt` and committed the files locally.'
+
+      - run: make generate
+      - run: git diff --exit-code
+      - name: Error message
+        if: ${{ failure() }}
+        run: echo 'Not generated files. Ensure you have run `make generate` and committed the files locally.'
   linting:
     name: lint
     runs-on: ubuntu-latest
