@@ -31,8 +31,7 @@ var (
 
 func init() {
 	initialismsRegex = regexp.MustCompile(fmt.Sprintf(
-		`(?i)\b(%s)\b`,
-		strcase.ToDelimited(strings.Join(initialisms, "|"), '|'),
+		`(?i)\b(%s)\b`, strings.Join(initialisms, "|"),
 	))
 }
 
