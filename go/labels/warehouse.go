@@ -1,9 +1,10 @@
-
+// Package labels
+// It contains labels for the warehouse domain
 // GENERATED CODE - DO NOT EDIT
 package labels
 
-// Labels for team warehouse
-var (
-    UploadId = name[int]("uploadId")
-    UploadTime = name[Time]("uploadTime")
+import (
+	log "github.com/rudderlabs/rudder-go-kit/logger"
 )
+
+var UploadID = func(v int64) log.Field { return log.NewIntField("uploadId", v) }

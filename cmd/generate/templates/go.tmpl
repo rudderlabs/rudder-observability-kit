@@ -1,10 +1,14 @@
-
+// Package labels
+// It contains labels for the {{ .Domain }} domain
 // GENERATED CODE - DO NOT EDIT
 package labels
 
-// Labels for team {{ .Team }}
+import (
+    log "github.com/rudderlabs/rudder-go-kit/logger"
+)
+
 var (
 {{- range .Labels }}
-    {{ .GoVarName }} = name[{{ .GoType }}]("{{ .Name }}")
+    {{ .Name | ToCamelWithInitialisms }} = func(v {{ .GoType }}) log.Field { return log.New{{ .Type | ToCamel }}Field("{{ .Name }}", v) }
 {{- end }}
 )
