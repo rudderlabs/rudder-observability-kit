@@ -31,11 +31,11 @@ func (l Label) GoType() string {
 	}
 }
 
-func (l Label) GoFieldValues() string {
+func (l Label) GoFieldValues(param string) string {
 	if l.Type == "error" {
-		return `v`
+		return param
 	}
-	return `"` + l.Name + `", v`
+	return `"` + l.Name + `", ` + param
 }
 
 func (l Label) NodeType() string {
