@@ -9,6 +9,6 @@ import (
 
 var (
 {{- range .Labels }}
-    {{ .Name | ToCamelWithInitialisms }} = func(v {{ .GoType }}) log.Field { return log.New{{ .Type | ToCamel }}Field("{{ .Name }}", v) }
+    {{ .Name | ToCamelWithInitialisms }} = func(v {{ .GoType }}) log.Field { return log.New{{ .Type | ToCamel }}Field({{ "v" | .GoFieldValues }}) }
 {{- end }}
 )

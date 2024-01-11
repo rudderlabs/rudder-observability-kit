@@ -14,5 +14,5 @@ var (
 	SourceType      = func(v string) log.Field { return log.NewStringField("sourceType", v) }
 	WorkspaceID     = func(v string) log.Field { return log.NewStringField("workspaceId", v) }
 	Namespace       = func(v string) log.Field { return log.NewStringField("namespace", v) }
-	Error           = func(v string) log.Field { return log.NewStringField("error", v) }
+	Error           = func(v error) log.Field { return log.NewErrorField(v) }
 )
