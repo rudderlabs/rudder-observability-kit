@@ -14,7 +14,7 @@ install-tools:
 	go install mvdan.cc/gofumpt@latest
 	go install gotest.tools/gotestsum@v1.10.0
 	go install golang.org/x/tools/cmd/goimports@latest
-	bash ./scripts/install-golangci-lint.sh v1.55.0
+	bash ./scripts/install-golangci-lint.sh v1.55.2
 
 .PHONY: fmt
 fmt: install-tools ## Formats all go files

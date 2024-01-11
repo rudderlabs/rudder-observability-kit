@@ -16,7 +16,7 @@ labels:
     - name: namespace
       type: string
     - name: error
-      type: string
+      type: error
   # Domain specific labels
   warehouse:
     - name: uploadId

@@ -31,9 +31,16 @@ func (l Label) GoType() string {
 	}
 }
 
+func (l Label) GoFieldValues() string {
+	if l.Type == "error" {
+		return `v`
+	}
+	return `"` + l.Name + `", v`
+}
+
 func (l Label) NodeType() string {
 	switch l.Type {
-	case "string":
+	case "string", "error":
 		return "string"
 	case "int", "int64", "int32", "float64", "float32":
 		return "number"
