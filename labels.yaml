@@ -13,6 +13,8 @@ labels:
       type: string
     - name: workspaceId
       type: string
+    - name: transformationId
+      type: string
     - name: namespace
       type: string
     - name: error
