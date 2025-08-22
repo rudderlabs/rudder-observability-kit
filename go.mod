@@ -4,7 +4,7 @@ go 1.24.6
 
 require (
 	github.com/iancoleman/strcase v0.3.0
-	github.com/rudderlabs/rudder-go-kit v0.60.0
+	github.com/rudderlabs/rudder-go-kit v0.61.0
 	github.com/stretchr/testify v1.10.0
 	gopkg.in/yaml.v3 v3.0.1
 )
