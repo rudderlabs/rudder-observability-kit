@@ -1,3 +1,7 @@
+GO := go
+GOLANG_CI := github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.5.0
+GOVULNCHECK := golang.org/x/vuln/cmd/govulncheck@latest
+
 # Generate labels for all language runtimes
 .PHONY: generate
 generate: run fmt
@@ -6,10 +10,13 @@ generate: run fmt
 test:
 	go test -v -count 1 ./...
 
-.PHONY: lint
-lint: fmt ## Run linters on all go files
-	go tool golangci-lint run -v ./...
+.PHONY: vulncheck
+vulncheck: ## Check for vulnerabilities in dependencies
+	$(GO) run $(GOVULNCHECK) ./...
 
+.PHONY: lint
+lint: fmt vulncheck ## Run linters on all go files
+	$(GO) run $(GOLANG_CI) run -v
 
 .PHONY: fmt
 fmt: ## Formats all go files
