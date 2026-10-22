@@ -29,6 +29,12 @@ linters:
             - pkg: github.com/rudderlabs/sonnet
               desc: use "jsonrs" instead
     forbidigo:
+      forbid:
+        # golangci-lint's default, which a custom forbid list replaces
+        - pattern: ^(fmt\.Print(|f|ln)|print|println)$
+        - pattern: ^errors\.As$
+          pkg: ^errors$
+          msg: use errors.AsType[T](err) instead, it returns the typed value and an ok bool
       analyze-types: true
   exclusions:
     generated: lax
