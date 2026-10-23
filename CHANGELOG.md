@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.8](https://github.com/rudderlabs/rudder-observability-kit/compare/v0.0.7...v0.0.8) (2026-10-23)
+
+
+### Bug Fixes
+
+* bump dependency versions ([#168](https://github.com/rudderlabs/rudder-observability-kit/issues/168)) ([d4aaebd](https://github.com/rudderlabs/rudder-observability-kit/commit/d4aaebd3439eaeb6d168c955c283aeb30d25617a))
+
 ## [0.0.7](https://github.com/rudderlabs/rudder-observability-kit/compare/v0.0.6...v0.0.7) (2026-04-14)
 
 
