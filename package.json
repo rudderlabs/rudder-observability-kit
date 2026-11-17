@@ -1,6 +1,28 @@
 {
   "name": "@rudderstack/observability-kit",
+  "version": "0.0.0",
+  "description": "Observability label names shared by RudderStack services",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf ./build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rudderlabs/rudder-observability-kit.git"
+  },
+  "author": "RudderStack",
+  "license": "MIT",
+  "files": [
+    "build",
+    "LICENSE",
+    "README.md"
+  ],
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
   }
 }
