@@ -63,7 +63,7 @@ Do these steps once, in this order:
 1. A repo admin creates the GitHub environment `npm-publish` with a deployment branch rule that allows only `main`. Without the rule, the first run creates the environment with no protection.
 2. An npm org admin publishes a placeholder `0.0.0` by hand.
 3. On npmjs.com, the admin adds a trusted publisher to the package: this repo, the workflow `release-please.yaml`, and the environment `npm-publish`. Under "Allowed actions", allow `npm publish`. A new trusted publisher allows only `npm stage publish` until you do.
-4. Merge the release PR within 2 days of step 3. A trusted publisher with no successful publish expires after 2 days.
+4. Merge the release PR. Do step 3 only when the PR is ready: the first CI publish must succeed within 2 days of step 3. After that the trusted publisher expires, and the admin deletes it and creates it again.
 
 Do not publish the release version itself by hand. npm then rejects the CI publish of that version after the GitHub release exists.
 
