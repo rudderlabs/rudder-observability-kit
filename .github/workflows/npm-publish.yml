@@ -6,7 +6,7 @@ on:
         required: true
         type: string
       ref:
-        description: 'Release tag to check out and build, e.g. "v0.1.0"'
+        description: 'Release tag ref to check out and build, e.g. "refs/tags/v0.1.0"'
         required: true
         type: string
       dry_run:
@@ -23,7 +23,7 @@ jobs:
   npm-publish:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    # The npm trusted publisher names this environment. Its deployment branch rule allows only main.
+    # The npm trusted publisher names this environment (README, "First publish").
     environment: npm-publish
     permissions:
       contents: read # actions/checkout

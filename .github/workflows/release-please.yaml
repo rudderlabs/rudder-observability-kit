@@ -5,10 +5,10 @@ on:
 
 name: release-please
 
-permissions:
-  contents: read
+permissions: {}
 
-# Queue release runs so a later push cannot overtake a publish.
+# One release run at a time. GitHub keeps one pending run and drops older ones;
+# a later run still finds a merged release PR, and the publish builds the tag.
 concurrency:
   group: release-please-${{ github.ref }}
   cancel-in-progress: false
@@ -57,4 +57,4 @@ jobs:
     uses: ./.github/workflows/npm-publish.yml
     with:
       version: ${{ needs.release-please.outputs.version }}
-      ref: ${{ needs.release-please.outputs.tag_name }}
+      ref: refs/tags/${{ needs.release-please.outputs.tag_name }}
