@@ -55,3 +55,16 @@ We want labels used for observability to be shared across all language runtimes 
    
 
   
+## Node package release
+release-please opens a release PR on `main`. Merging it creates the GitHub release, and the `npm-publish` job publishes `@rudderstack/observability-kit` from the release tag through npm trusted publishing.
+
+### First publish
+Trusted publishing needs the package to exist on npm. Do these steps once, in this order:
+1. An npm org admin publishes a placeholder `0.0.0` by hand.
+2. On npmjs.com, add a trusted publisher: this repo, the workflow `release-please.yaml`, and the environment `npm-publish`.
+3. Merge the release PR.
+
+Do not publish the release version itself by hand. The CI publish then fails with E403 after the GitHub release exists.
+
+### When the publish fails
+The GitHub release already exists when the `npm-publish` job runs. Re-run only the failed job: "Re-run failed jobs" in the Actions UI, or `gh run rerun <run-id> --failed`. A full re-run or a later push to `main` does not publish the release again.
