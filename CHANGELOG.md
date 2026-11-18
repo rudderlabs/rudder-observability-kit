@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0](https://github.com/rudderlabs/rudder-observability-kit/compare/v0.0.8...v0.1.0) (2026-11-18)
+
+
+### Features
+
+* add accountId label and publish the Node package to npm ([#174](https://github.com/rudderlabs/rudder-observability-kit/issues/174)) ([2187027](https://github.com/rudderlabs/rudder-observability-kit/commit/218702751f4a2cab967074f6ed3c9cef2d939e31))
+
 ## [0.0.8](https://github.com/rudderlabs/rudder-observability-kit/compare/v0.0.7...v0.0.8) (2026-10-23)
 
 
