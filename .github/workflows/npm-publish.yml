@@ -2,7 +2,11 @@ on:
   workflow_call:
     inputs:
       version:
-        description: 'Version to set in package.json before the build, e.g. "0.0.9"'
+        description: 'Version to set in package.json before the build, e.g. "0.1.0"'
+        required: true
+        type: string
+      ref:
+        description: 'Release tag ref to check out and build, e.g. "refs/tags/v0.1.0"'
         required: true
         type: string
       dry_run:
@@ -19,6 +23,8 @@ jobs:
   npm-publish:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    # The npm trusted publisher names this environment (README, "First publish").
+    environment: npm-publish
     permissions:
       contents: read # actions/checkout
       id-token: write # npm trusted publishing (OIDC)
@@ -31,6 +37,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          ref: ${{ inputs.ref }}
           persist-credentials: false
 
       - name: Setup Node
@@ -46,7 +53,7 @@ jobs:
         run: npm version "$VERSION" --no-git-tag-version
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
 
       - name: Build package
         run: npm run build

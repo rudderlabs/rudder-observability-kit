@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: "gomod"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     cooldown:
       default-days: 7
       exclude:
@@ -16,7 +16,7 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     cooldown:
       default-days: 7
       exclude:
@@ -32,7 +32,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     cooldown:
       default-days: 7
     groups:
@@ -43,7 +43,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     cooldown:
       default-days: 7
       exclude:

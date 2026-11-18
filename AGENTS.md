@@ -84,6 +84,7 @@ var (
     SourceID         = func(v string) log.Field { return log.NewStringField("sourceId", v) }
     SourceType       = func(v string) log.Field { return log.NewStringField("sourceType", v) }
     WorkspaceID      = func(v string) log.Field { return log.NewStringField("workspaceId", v) }
+    AccountID        = func(v string) log.Field { return log.NewStringField("accountId", v) }
     TransformationID = func(v string) log.Field { return log.NewStringField("transformationId", v) }
     Namespace        = func(v string) log.Field { return log.NewStringField("namespace", v) }
     Error            = func(v error) log.Field { return log.NewErrorField(v) }
