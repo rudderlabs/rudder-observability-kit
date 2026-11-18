@@ -5,3 +5,10 @@ import { Label } from "./label";
 {{- range .Labels }}
 export const {{ .Name | ToCamel }} = Label.Name<{{ .NodeType }}>("{{ .Name }}");
 {{- end }}
+
+// Names of all labels in the {{ .Domain }} domain
+export const Names = [
+{{- range .Labels }}
+    "{{ .Name }}",
+{{- end }}
+] as const;

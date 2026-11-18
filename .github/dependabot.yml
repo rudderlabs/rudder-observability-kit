@@ -1,18 +1,56 @@
 version: 2
 updates:
   - package-ecosystem: "gomod"
-    directory: "/" 
+    directory: "/"
     schedule:
       interval: "daily"
+    cooldown:
+      default-days: 7
+      exclude:
+        - "github.com/rudderlabs/*"
+    groups:
+      go-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
   - package-ecosystem: "github-actions"
-    directory: "/" 
+    directory: "/"
     schedule:
       interval: "daily"
+    cooldown:
+      default-days: 7
+      exclude:
+        - "rudderlabs/*"
+    groups:
+      actions-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
+      actions:
+        patterns:
+          - "*"
   - package-ecosystem: "pip"
-    directory: "/" 
+    directory: "/"
     schedule:
       interval: "daily"
+    cooldown:
+      default-days: 7
+    groups:
+      pip-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
   - package-ecosystem: "npm"
-    directory: "/" 
+    directory: "/"
     schedule:
       interval: "daily"
+    cooldown:
+      default-days: 7
+      exclude:
+        - "@rudderlabs/*"
+        - "@rudderstack/*"
+    groups:
+      npm-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
